@@ -19,5 +19,22 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+            // Create one admin user
+    User::create([
+        'name' => 'Admin User',
+        'email' => 'admin@example.com',
+        'password' => bcrypt('password'), // Or use Hash::make()
+        'role' => 'admin',
+    ]);
+
+    // Create a regular staff user
+    User::create([
+        'name' => 'Staff User',
+        'email' => 'staff@example.com',
+        'password' => bcrypt('password'),
+        'role' => 'staff',
+    ]);
+
     }
+
 }
